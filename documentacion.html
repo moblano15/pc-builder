@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentación PC Builder</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    h1 {
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+    h2 {
+      background-color: #e8f4fc;
+      padding: 8px;
+      border-left: 4px solid #3498db;
+    }
+    code {
+      background-color: #f0f0f0;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    pre {
+      background-color: #282c34;
+      color: #abb2bf;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .file-structure {
+      background-color: #e8e8e8;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: monospace;
+    }
+    .component {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .note {
+      background-color: #fffde7;
+      padding: 15px;
+      border-left: 4px solid #ffd600;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Documentación del Proyecto PC Builder</h1>
+
+  <section id="introduccion">
+    <h2>1. Introducción</h2>
+    <p>PC Builder es una aplicación web que permite a los usuarios seleccionar componentes de computadora y calcular el precio total de su configuración. La aplicación está desarrollada con tecnologías web estándar (HTML, CSS, JavaScript) sin dependencias externas.</p>
+    
+    <div class="note">
+      <strong>Características principales:</strong>
+      <ul>
+        <li>Interfaz intuitiva con diseño responsive</li>
+        <li>Base de datos de componentes reales con imágenes</li>
+        <li>Cálculo automático del precio total</li>
+        <li>Visualización de especificaciones técnicas</li>
+        <li>Temática "Matrix" (fondo negro con texto verde)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="estructura">
+    <h2>2. Estructura del Proyecto</h2>
+    
+    <div class="file-structure">
+      pc-builder/<br>
+      ├── index.html          # Página principal<br>
+      ├── style.css           # Estilos CSS<br>
+      ├── script.js           # Lógica de la aplicación<br>
+      ├── data.js             # Base de datos de componentes<br>
+      ├── contenido.html      # Documentación adicional<br>
+      └── instalar_pc_builder.sh # Script de instalación
+    </div>
+    
+    <h3>2.1. index.html</h3>
+    <p>Estructura básica de la aplicación con:</p>
+    <ul>
+      <li>Formulario para selección de componentes</li>
+      <li>Tabla de resumen con detalles y precios</li>
+      <li>Sección de totalización</li>
+    </ul>
+
+    <h3>2.2. style.css</h3>
+    <p>Estilos con temática "Matrix" que incluyen:</p>
+    <ul>
+      <li>Diseño responsive para diferentes tamaños de pantalla</li>
+      <li>Efectos visuales para los componentes seleccionados</li>
+      <li>Estilización de tablas y formularios</li>
+    </ul>
+
+    <h3>2.3. script.js</h3>
+    <p>Lógica principal que maneja:</p>
+    <ul>
+      <li>Generación dinámica del formulario</li>
+      <li>Actualización de la tabla de resumen</li>
+      <li>Cálculo del precio total</li>
+    </ul>
+
+    <h3>2.4. data.js</h3>
+    <p>Base de datos con información real de componentes:</p>
+    <ul>
+      <li>8 categorías diferentes (CPU, GPU, RAM, etc.)</li>
+      <li>2-3 opciones por categoría</li>
+      <li>Imágenes, especificaciones y precios actualizados</li>
+    </ul>
+  </section>
+
+  <section id="funcionamiento">
+    <h2>3. Funcionamiento de la Aplicación</h2>
+    
+    <h3>3.1. Diagrama de Flujo</h3>
+    <ol>
+      <li>El usuario carga la aplicación</li>
+      <li>Se genera dinámicamente el formulario de selección</li>
+      <li>El usuario selecciona componentes</li>
+      <li>La tabla de resumen se actualiza automáticamente</li>
+      <li>Se calcula y muestra el precio total</li>
+    </ol>
+    
+    <h3>3.2. Funciones Principales</h3>
+    <table>
+      <tr>
+        <th>Función</th>
+        <th>Descripción</th>
+        <th>Archivo</th>
+      </tr>
+      <tr>
+        <td><code>renderForm()</code></td>
+        <td>Crea dinámicamente los controles del formulario basados en data.js</td>
+        <td>script.js</td>
+      </tr>
+      <tr>
+        <td><code>renderTable()</code></td>
+        <td>Actualiza la tabla de resumen con los componentes seleccionados</td>
+        <td>script.js</td>
+      </tr>
+      <tr>
+        <td><code>selected</code></td>
+        <td>Objeto que almacena los componentes seleccionados por el usuario</td>
+        <td>script.js</td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="componentes">
+    <h2>4. Base de Datos de Componentes</h2>
+    
+    <p>La aplicación incluye 8 categorías de componentes con especificaciones técnicas reales:</p>
+    
+    <div class="component">
+      <h3>CPU (Procesadores)</h3>
+      <ul>
+        <li>Intel i5-10400F (6 núcleos, 12 hilos)</li>
+        <li>Ryzen 5 5600G (6 núcleos, 12 hilos)</li>
+      </ul>
+    </div>
+    
+    <div class="component">
+      <h3>GPU (Tarjetas Gráficas)</h3>
+      <ul>
+        <li>NVIDIA RTX 3060 (12GB GDDR6)</li>
+        <li>NVIDIA RTX 4060 (16GB GDDR6)</li>
+      </ul>
+    </div>
+    
+    <div class="component">
+      <h3>RAM (Memoria)</h3>
+      <ul>
+        <li>Corsair Vengeance RGB Pro 32GB DDR4</li>
+        <li>Corsair 32GB DDR5 5200MHz</li>
+      </ul>
+    </div>
+    
+    <p>Y además: Placas base, refrigeración, almacenamiento, fuentes de alimentación y cajas.</p>
+  </section>
+
+  <section id="instalacion">
+    <h2>5. Instalación y Uso</h2>
+    
+    <h3>5.1. Requisitos</h3>
+    <ul>
+      <li>Sistema operativo Linux (recomendado Ubuntu 22.04/24.04)</li>
+      <li>Python 3 para el servidor de desarrollo</li>
+      <li>Navegador web moderno (Chrome, Firefox, Edge)</li>
+    </ul>
+    
+    <h3>5.2. Pasos de Instalación</h3>
+    <pre>
+# 1. Descargar el script
+wget https://ejemplo.com/instalar_pc_builder.sh
+
+# 2. Dar permisos de ejecución
+chmod +x instalar_pc_builder.sh
+
+# 3. Ejecutar el script
+./instalar_pc_builder.sh
+
+# La aplicación se abrirá automáticamente en http://localhost:8000
+    </pre>
+    
+    <h3>5.3. Script de Instalación</h3>
+    <p>El script <code>instalar_pc_builder.sh</code> realiza las siguientes acciones:</p>
+    <ol>
+      <li>Crea la estructura de directorios</li>
+      <li>Genera todos los archivos necesarios</li>
+      <li>Inicia un servidor web local</li>
+      <li>Abre la aplicación en el navegador predeterminado</li>
+    </ol>
+  </section>
+
+  <section id="personalizacion">
+    <h2>6. Personalización y Extensión</h2>
+    
+    <h3>6.1. Añadir Nuevos Componentes</h3>
+    <p>Para agregar nuevos componentes, edita el archivo <code>data.js</code>:</p>
+    <pre>
+// Ejemplo: Añadir nueva CPU
+{
+  name: "Intel i7-12700K",
+  socket: "LGA1700",
+  tdpMin: 125,
+  tdpMax: 190,
+  image: "url_de_la_imagen.jpg",
+  specs: "12 núcleos (8P+4E), 20 hilos, hasta 5.0GHz",
+  price: 420
+}
+    </pre>
+    
+    <h3>6.2. Modificar el Diseño</h3>
+    <p>Edita <code>style.css</code> para cambiar la apariencia:</p>
+    <pre>
+/* Cambiar tema de colores */
+body {
+  background: linear-gradient(135deg, #000033, #000066);
+  color: #00ccff;
+}
+
+/* Modificar estilos de la tabla */
+table {
+  border: 2px solid #00ccff;
+}
+    </pre>
+    
+    <h3>6.3. Añadir Nuevas Funcionalidades</h3>
+    <p>Puedes extender <code>script.js</code> con nuevas características:</p>
+    <ul>
+      <li>Compatibilidad entre componentes</li>
+      <li>Guardar configuraciones</li>
+      <li>Comparar componentes</li>
+    </ul>
+  </section>
+
+  <section id="conclusion">
+    <h2>7. Conclusión</h2>
+    <p>PC Builder es una aplicación completa para ensamblar computadoras virtuales con:</p>
+    <ul>
+      <li>Interfaz intuitiva y atractiva</li>
+      <li>Datos técnicos reales</li>
+      <li>Fácil personalización</li>
+      <li>Sin dependencias externas</li>
+    </ul>
+    <p>Ideal para entusiastas de hardware, tiendas de computación o como proyecto educativo para aprender desarrollo web.</p>
+  </section>
+
+  <footer>
+    <p>Documentación generada el 15/06/2024 - Versión 1.0</p>
+  </footer>
+</body>
+</html>
